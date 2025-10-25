@@ -609,6 +609,112 @@
             color: var(--text-dark);
         }
 
+        /* Testimonials Section */
+        #testimonials {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonials-track {
+            display: flex;
+            gap: 30px;
+            width: max-content;
+            animation: scrollTestimonials 40s linear infinite;
+        }
+
+        .testimonial-card {
+            flex: 0 0 350px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(46, 204, 113, 0.2);
+            transition: all 0.3s ease;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-green);
+            box-shadow: 0 15px 40px rgba(46, 204, 113, 0.2);
+        }
+
+        .testimonial-content {
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 2px solid var(--primary-green);
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            color: var(--primary-green);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .author-info p {
+            color: rgba(236, 240, 241, 0.7);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .testimonial-rating {
+            color: #ffc107;
+            margin-bottom: 15px;
+        }
+
+        @keyframes scrollTestimonials {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-350px * 6 - 30px * 6));
+            }
+        }
+
+        /* Pause animation on hover */
+        .testimonials-track:hover {
+            animation-play-state: paused;
+        }
+
         /* Socials Section */
         #socials {
             background: white;
@@ -704,6 +810,19 @@
             .cube-container {
                 display: none;
             }
+            
+            .testimonial-card {
+                flex: 0 0 300px;
+            }
+            
+            @keyframes scrollTestimonials {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-300px * 6 - 30px * 6));
+                }
+            }
         }
 
         @media (max-width: 768px) {
@@ -749,6 +868,19 @@
             .social-links {
                 flex-wrap: wrap;
             }
+            
+            .testimonial-card {
+                flex: 0 0 280px;
+            }
+            
+            @keyframes scrollTestimonials {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-280px * 6 - 30px * 6));
+                }
+            }
         }
 
         @media (max-width: 576px) {
@@ -778,40 +910,52 @@
                 width: 100%;
                 max-width: 250px;
             }
+            
+            .testimonial-card {
+                flex: 0 0 250px;
+            }
+            
+            @keyframes scrollTestimonials {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-250px * 6 - 30px * 6));
+                }
+            }
         }
 
         /* Dark Theme for About, Portfolio, and Socials */
-#about, 
-#portfolio, 
-#socials {
-    background: var(--bg-dark);
-    color: var(--text-light);
-}
+        #about, 
+        #portfolio, 
+        #socials {
+            background: var(--bg-dark);
+            color: var(--text-light);
+        }
 
-/* Adjust text inside these sections */
-#about p, 
-#portfolio p, 
-#socials p,
-#portfolio h3,
-#socials span {
-    color: var(--text-light);
-}
+        /* Adjust text inside these sections */
+        #about p, 
+        #portfolio p, 
+        #socials p,
+        #portfolio h3,
+        #socials span {
+            color: var(--text-light);
+        }
 
-/* Fix portfolio cards to match dark mode */
-.portfolio-item {
-    background: #111;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-}
+        /* Fix portfolio cards to match dark mode */
+        .portfolio-item {
+            background: #111;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
 
-.portfolio-info h3 {
-    color: var(--primary-green);
-}
+        .portfolio-info h3 {
+            color: var(--primary-green);
+        }
 
-/* Make skill bars visible on dark background */
-.skill-bar {
-    background: #222;
-}
-
+        /* Make skill bars visible on dark background */
+        .skill-bar {
+            background: #222;
+        }
     </style>
 </head>
 <body>
@@ -846,6 +990,7 @@
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#socials">Socials</a></li>
                     <li><a href="#" class="btn">Contact</a></li>
                 </ul>
@@ -1013,6 +1158,270 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="testimonials-container">
+            <h2>What Clients Say</h2>
+            <div class="testimonials-track" id="testimonials-track">
+                <!-- First set of testimonials -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Paco's designs completely transformed our game's aesthetic. The attention to detail and creativity is unmatched. Our players love the new outfits!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="1.png" alt="Alex Johnson">
+                        </div>
+                        <div class="author-info">
+                            <h4>Alex Johnson</h4>
+                            <p>Game Developer, Pixel Studios</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Working with Paco was a game-changer for our group. The clothing designs are not only visually stunning but also perfectly capture our group's identity."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="1.png" alt="Sarah Miller">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Miller</h4>
+                            <p>Group Leader, Elite Roleplayers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p>"The anime outfits Paco created for our event were incredible. They perfectly captured the style we were looking for and our community loved them!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="1.png" alt="Marcus Lee">
+                        </div>
+                        <div class="author-info">
+                            <h4>Marcus Lee</h4>
+                            <p>Event Coordinator, AnimeCon</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Paco's realistic outfits brought our characters to life. The level of detail in the textures and the fit is phenomenal. Highly recommended!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="1.png" alt="Jessica Chen">
+                        </div>
+                        <div class="author-info">
+                            <h4>Jessica Chen</h4>
+                            <p>Creative Director, Virtual Fashion</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The suit collection Paco designed for our business roleplay group is exceptional. Professional, stylish, and exactly what we needed."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="1.png" alt="David Wilson">
+                        </div>
+                        <div class="author-info">
+                            <h4>David Wilson</h4>
+                            <p>CEO, Corporate Roleplay Group</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"I've worked with many designers, but Paco's attention to detail and understanding of Roblox's unique style is truly exceptional."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="1.png" alt="Emily Rodriguez">
+                        </div>
+                        <div class="author-info">
+                            <h4>Emily Rodriguez</h4>
+                            <p>Fashion Director, StyleHub</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Duplicate set for seamless looping -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Paco's designs completely transformed our game's aesthetic. The attention to detail and creativity is unmatched. Our players love the new outfits!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
+                        </div>
+                        <div class="author-info">
+                            <h4>Alex Johnson</h4>
+                            <p>Game Developer, Pixel Studios</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Working with Paco was a game-changer for our group. The clothing designs are not only visually stunning but also perfectly capture our group's identity."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Miller">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Miller</h4>
+                            <p>Group Leader, Elite Roleplayers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p>"The anime outfits Paco created for our event were incredible. They perfectly captured the style we were looking for and our community loved them!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Marcus Lee">
+                        </div>
+                        <div class="author-info">
+                            <h4>Marcus Lee</h4>
+                            <p>Event Coordinator, AnimeCon</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Paco's realistic outfits brought our characters to life. The level of detail in the textures and the fit is phenomenal. Highly recommended!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Jessica Chen">
+                        </div>
+                        <div class="author-info">
+                            <h4>Jessica Chen</h4>
+                            <p>Creative Director, Virtual Fashion</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The suit collection Paco designed for our business roleplay group is exceptional. Professional, stylish, and exactly what we needed."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David Wilson">
+                        </div>
+                        <div class="author-info">
+                            <h4>David Wilson</h4>
+                            <p>CEO, Corporate Roleplay Group</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"I've worked with many designers, but Paco's attention to detail and understanding of Roblox's unique style is truly exceptional."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Emily Rodriguez">
+                        </div>
+                        <div class="author-info">
+                            <h4>Emily Rodriguez</h4>
+                            <p>Fashion Director, StyleHub</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Socials Section -->
     <section id="socials">
         <div class="container">
@@ -1022,7 +1431,6 @@
                 <a href="https://www.roblox.com/users/2351175018/profile" class="social-link" target="_blank">
                     <div class="social-icon">
                         <img src="Roblox_Logo.svg.png" alt="Roblox Logo" style="width: 32px; height: 32px; filter: invert(1);">
-
                     </div>
                     <span>Roblox</span>
                 </a>
@@ -1240,17 +1648,6 @@
 
         window.addEventListener('scroll', animatePortfolioItems);
         window.addEventListener('load', animatePortfolioItems);
-
-        // Discord ID Copy Functionality
-        document.getElementById('discord-link').addEventListener('click', function(e) {
-            e.preventDefault();
-            const discordId = '1050778275212967997';
-            navigator.clipboard.writeText(discordId).then(function() {
-                alert('Discord ID copied to clipboard: ' + discordId);
-            }, function(err) {
-                alert('Failed to copy Discord ID. Please copy manually: ' + discordId);
-            });
-        });
 
         // Button Ripple Effect
         document.querySelectorAll('.btn').forEach(button => {
